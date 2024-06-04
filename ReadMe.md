@@ -2,6 +2,9 @@
 
 Spring Security는 스프링 프레임워크의 강력하고 확장 가능한 보안 프레임워크
 
+![스프링 시큐리티 아키텍처1](./img/spring_security_arc1.jpg)
+![스프링 시큐리티 아키텍처2](./img/spring_security_arc2.jpg)
+![스프링 시큐리티 아키텍처3](./img/spring_security_arc3.jpg)
 #### 주요 기능
 
 1. 인증 (Authentication):
