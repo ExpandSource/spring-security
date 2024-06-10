@@ -48,13 +48,16 @@ public class SecurityConfig {
                 // HTTP 요청에 대한 권한 설정
                 .authorizeRequests(auth -> auth
                         // 해당 패턴에 대해서는 권한 허용
-                        .requestMatchers("/test", "/register", "/auth", "/jwt/**").permitAll()
+                        .requestMatchers("/test", "/register", "/auth", "/jwt/**",
+                                // SpringDoc Open API 주소 허용
+                                "/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**").permitAll()
+
                         // 그 외 모든 요청에 대해서 인증이 필요함
                         .anyRequest().authenticated()
                 )
                 // REST API는 무상태성을 가지기 때문에 세션을 무상태(STATELESS)로 설정.
                 .sessionManagement(session ->
-                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 // JWT 필터를 인증 필터 앞에 추가
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
